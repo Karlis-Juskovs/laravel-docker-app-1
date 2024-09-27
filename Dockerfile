@@ -22,6 +22,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www
 
+# Remove any existing docker-entrypoint.sh to avoid conflicts
+RUN rm -f /usr/local/bin/docker-entrypoint.sh
+
 # Copy entrypoint script
 COPY ./docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh

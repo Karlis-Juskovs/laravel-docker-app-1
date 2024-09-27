@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "karlis/module1": "^1.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9"
     },
@@ -46,9 +47,22 @@
             "@php artisan migrate --graceful --ansi"
         ]
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Karlis-Juskovs/common-module"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Karlis-Juskovs/news-module"
+        }
+    ],
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "providers": [
+                "Karlis\\Module1\\Module1ServiceProvider"
+            ],
+            "aliases": {}
         }
     },
     "config": {
@@ -60,6 +74,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
