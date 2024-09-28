@@ -4,6 +4,7 @@ services:
       context: ./
       dockerfile: Dockerfile
     container_name: app-1
+    user: "www-data:www-data"
     image: base-1
     volumes:
       - ./:/var/www
